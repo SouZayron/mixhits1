@@ -69,15 +69,16 @@
 
   .left-block {
     position: relative;
-    padding: 0.9rem 1rem;
+    padding: 0.7rem 1.2rem 0.7rem 1.4rem;
     background: var(--glass);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    border-radius: 14px;
     backdrop-filter: blur(16px);
     overflow: hidden;
     transition: transform .35s ease, box-shadow .35s ease;
     pointer-events: all;
     z-index: 10000;
+    width: max-content;
   }
   .left-block:hover {
     transform: translateX(6px);
@@ -87,24 +88,25 @@
     content: '';
     position: absolute; top: 0; left: 0;
     width: 4px; height: 100%;
-    border-radius: 20px 0 0 20px;
   }
   .left-block:nth-child(1)::before { background: linear-gradient(180deg, var(--accent2), var(--accent)); }
   .left-block:nth-child(2)::before { background: linear-gradient(180deg, var(--gold), var(--accent)); }
   .left-block:nth-child(3)::before { background: linear-gradient(180deg, var(--accent), var(--accent2)); }
 
   .block-icon {
-    font-size: 1.4rem;
-    margin-bottom: .3rem;
+    font-size: 1.1rem;
+    margin-bottom: .2rem;
     display: block;
   }
   .block-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     line-height: 1.05;
     letter-spacing: .03em;
+    white-space: nowrap;
     background: linear-gradient(135deg, #fff 40%, var(--accent2));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    display: inline-block;
   }
   .left-block:nth-child(2) .block-title {
     background: linear-gradient(135deg, #fff 40%, var(--gold));
@@ -115,11 +117,13 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   .block-sub {
-    font-size: .72rem;
+    font-size: .68rem;
     color: var(--muted);
-    margin-top: .4rem;
+    margin-top: .25rem;
     font-weight: 300;
     letter-spacing: .04em;
+    white-space: nowrap;
+    display: block;
   }
 
   /* ══════════════ CENTER — EMPTY ══════════════ */
