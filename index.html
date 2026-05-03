@@ -59,14 +59,14 @@
   .col-left {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 3rem 1rem 3rem 10%;
-    gap: 2rem;
+    justify-content: flex-start;
+    padding: 8% 1rem 3rem 10%;
+    gap: 1.2rem;
   }
 
   .left-block {
     position: relative;
-    padding: 1.4rem 1.2rem;
+    padding: 0.9rem 1rem;
     background: var(--glass);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
@@ -89,13 +89,13 @@
   .left-block:nth-child(3)::before { background: linear-gradient(180deg, var(--accent), var(--accent2)); }
 
   .block-icon {
-    font-size: 2rem;
-    margin-bottom: .6rem;
+    font-size: 1.4rem;
+    margin-bottom: .3rem;
     display: block;
   }
   .block-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     line-height: 1.05;
     letter-spacing: .03em;
     background: linear-gradient(135deg, #fff 40%, var(--accent2));
@@ -110,7 +110,7 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   .block-sub {
-    font-size: .82rem;
+    font-size: .72rem;
     color: var(--muted);
     margin-top: .4rem;
     font-weight: 300;
@@ -124,8 +124,8 @@
   .col-right {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 3rem 3.5rem 3rem 2rem;
+    justify-content: flex-start;
+    padding: 8% 3rem 3rem 2rem;
     position: relative;
   }
 
@@ -141,14 +141,14 @@
   /* ── CAROUSEL STAGE ── */
   .carousel-stage {
     position: relative;
-    height: 340px;
+    height: 300px;
     perspective: 900px;
   }
 
   .prog-card {
     position: absolute;
     top: 50%; left: 50%;
-    width: 230px;
+    width: 200px;
     border-radius: 22px;
     overflow: hidden;
     border: 1px solid var(--glass-border);
