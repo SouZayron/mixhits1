@@ -13,7 +13,6 @@
         body { background: #0C001A; }
         .scene { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
 
-        /* ── Confetes ── */
         .confetti-container { position:absolute; inset:0; pointer-events:none; z-index:3; overflow:hidden; }
         .confetti { position:absolute; top:-20px; width:8px; height:8px; opacity:0; animation:confettiFall var(--fall-dur,6s) var(--fall-delay,0s) linear infinite; }
         .confetti.rect   { border-radius:1px; }
@@ -27,7 +26,6 @@
             100%{transform:translateY(110vh) rotate(720deg) translateX(0);opacity:0.3;}
         }
 
-        /* ── Balões ── */
         .balloon-svg { position:absolute; bottom:-140px; animation:balloonRise var(--rise-dur,14s) var(--rise-delay,0s) ease-in-out infinite; }
         @keyframes balloonRise {
             0%  {transform:translateY(0) translateX(0) rotate(-2deg);opacity:0;}
@@ -39,54 +37,41 @@
             100%{transform:translateY(-115vh) translateX(var(--sw,18px)) rotate(0deg);opacity:0;}
         }
 
-        /*
-         * ── Box de fundo + contorno pulsante ──────────────────────
-         * O xat embed tem: width=650 height=486
-         * Este wrapper fica exatamente em cima do iframe do xat.
-         * O contorno SVG tem +2px em cada lado → 654 x 490
-         * pointer-events: none em tudo → não interfere no chat
-         * ──────────────────────────────────────────────────────────
-         */
-        .chat-glow-wrap {
-            position: absolute;
-            /* centralizado — ajuste top/left para casar com a posição
-               exata do iframe do xat na sua página */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            /* tamanho = xat (650x486) + 2px cada lado */
-            width:  654px;
-            height: 490px;
-
-            pointer-events: none;
-            z-index: 20;
+        /* ── Chat backdrop — contorno pulsante em degradê rosa→roxo ── */
+        .chat-backdrop-wrap {
+            position:absolute; top:93px; left:50.25%;
+            transform:translateX(-50%);
+            width:728px; height:486px;
+            z-index:20; pointer-events:none;
+        }
+        .chat-backdrop {
+            position:absolute; inset:0;
+            backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+            border-radius:16px;
+            border: 2px solid transparent;
         }
 
-        /* SVG de contorno ocupa o wrapper inteiro */
+        /* SVG de contorno pulsante */
         .border-light {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            overflow: visible;
+            position:absolute; inset:-1px;
+            width:calc(100% + 2px); height:calc(100% + 2px);
+            overflow:visible; pointer-events:none;
         }
-
         .border-light .pulse-path {
             fill: none;
             stroke-width: 2;
             stroke: url(#pulseGrad);
-            filter: url(#glowFilterLow);
+            filter: url(#glowFilter);
             animation: borderPulse 3s ease-in-out infinite;
         }
         @keyframes borderPulse {
-            0%   { opacity:0.4; filter:url(#glowFilterLow);  }
-            50%  { opacity:1;   filter:url(#glowFilterHigh); }
-            100% { opacity:0.4; filter:url(#glowFilterLow);  }
+            0%   { opacity: 0.4; filter: url(#glowFilterLow);  }
+            50%  { opacity: 1;   filter: url(#glowFilterHigh); }
+            100% { opacity: 0.4; filter: url(#glowFilterLow);  }
         }
 
         /* ── Logo tabs ── */
-        .logo-tabs { position:absolute; right:calc(50% - 325px + 10px); top:440px; transform:translateY(-50%); z-index:21; text-align:right; }
+        .logo-tabs { position:absolute; right:calc(50.25% - 189px + 10px); top:440px; transform:translateY(-50%); z-index:21; text-align:right; }
         .logo-tabs .logo-text { font-family:'Rethink Sans',sans-serif; font-weight:400; font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; -webkit-text-stroke:1px #050a15; paint-order:stroke fill; color:#fff; }
         .logo-tabs .logo-text .letter { display:inline-block; animation:letterBounce 12s ease-in-out infinite; }
         @keyframes letterBounce {
@@ -121,36 +106,39 @@
         <div class="logo-sub">www.mixhits.com.br</div>
     </div>
 
-    <!--
-        Este wrapper fica sobre o iframe do xat.
-        Tamanho: 650+2+2 = 654px  |  486+2+2 = 490px
-        Posição: centralizado (ajuste top/left se o xat não estiver no centro)
-    -->
-    <div class="chat-glow-wrap">
-        <svg class="border-light" viewBox="0 0 654 490" xmlns="http://www.w3.org/2000/svg">
+    <div class="chat-backdrop-wrap">
+        <div class="chat-backdrop"></div>
+        <svg class="border-light" viewBox="0 0 730 488" xmlns="http://www.w3.org/2000/svg">
             <defs>
+                <!-- Degradê rosa → roxo que anima entre os dois -->
                 <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%"   stop-color="#ff1493"/>
-                    <stop offset="50%"  stop-color="#c0235e"/>
-                    <stop offset="100%" stop-color="#7b2fc9"/>
+                    <stop offset="0%"   stop-color="#ff1493" />
+                    <stop offset="50%"  stop-color="#c0235e" />
+                    <stop offset="100%" stop-color="#7b2fc9" />
                 </linearGradient>
                 <linearGradient id="pulseGrad2" x1="100%" y1="100%" x2="0%" y2="0%" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%"   stop-color="#ff1493"/>
-                    <stop offset="50%"  stop-color="#c0235e"/>
-                    <stop offset="100%" stop-color="#7b2fc9"/>
+                    <stop offset="0%"   stop-color="#ff1493" />
+                    <stop offset="50%"  stop-color="#c0235e" />
+                    <stop offset="100%" stop-color="#7b2fc9" />
                 </linearGradient>
+
+                <!-- Glow fraco -->
                 <filter id="glowFilterLow" x="-20%" y="-20%" width="140%" height="140%">
                     <feGaussianBlur stdDeviation="2" result="blur"/>
                     <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                 </filter>
+                <!-- Glow forte -->
                 <filter id="glowFilterHigh" x="-30%" y="-30%" width="160%" height="160%">
                     <feGaussianBlur stdDeviation="6" result="blur1"/>
                     <feGaussianBlur stdDeviation="12" result="blur2"/>
-                    <feMerge><feMergeNode in="blur2"/><feMergeNode in="blur1"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    <feMerge>
+                        <feMergeNode in="blur2"/>
+                        <feMergeNode in="blur1"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
                 </filter>
             </defs>
-            <!-- rect cobre os 654x490 do wrapper, rx acompanha o border-radius do xat -->
-            <rect class="pulse-path" x="1" y="1" width="652" height="488" rx="8" ry="8"/>
+            <rect class="pulse-path" x="1" y="1" width="728" height="486" rx="16" ry="16"/>
         </svg>
     </div>
 
@@ -189,11 +177,13 @@
         wrapper.style.setProperty("--sw",(Math.random()<0.5?1:-1)*(8+Math.random()*25)+"px");
         wrapper.innerHTML=
           '<svg width="'+w+'" height="'+(h+40)+'" viewBox="0 0 60 115" xmlns="http://www.w3.org/2000/svg">'
-          +'<defs><radialGradient id="bg'+b+'" cx="38%" cy="32%" r="60%">'
+          +'<defs>'
+          +'<radialGradient id="bg'+b+'" cx="38%" cy="32%" r="60%">'
           +'<stop offset="0%" stop-color="#fff" stop-opacity="0.45"/>'
           +'<stop offset="40%" stop-color="'+col+'" stop-opacity="0.9"/>'
           +'<stop offset="100%" stop-color="'+col+'" stop-opacity="1"/>'
-          +'</radialGradient></defs>'
+          +'</radialGradient>'
+          +'</defs>'
           +'<ellipse cx="30" cy="33" rx="28" ry="33" fill="url(#bg'+b+')" />'
           +'<polygon points="30,64 26,70 34,70" fill="'+col+'"/>'
           +'<ellipse cx="30" cy="70" rx="3" ry="2.5" fill="'+col+'"/>'
@@ -202,12 +192,13 @@
         bel.appendChild(wrapper);
     }
 
-    var useGrad1=true;
-    var pathEl=document.querySelector('.pulse-path');
+    /* Inverte o degradê a cada ciclo para o efeito rosa↔roxo */
+    var useGrad1 = true;
+    var pathEl = document.querySelector('.pulse-path');
     setInterval(function(){
-        useGrad1=!useGrad1;
-        pathEl.style.stroke=useGrad1?'url(#pulseGrad)':'url(#pulseGrad2)';
-    },3000);
+        useGrad1 = !useGrad1;
+        pathEl.style.stroke = useGrad1 ? 'url(#pulseGrad)' : 'url(#pulseGrad2)';
+    }, 3000);
 
     document.addEventListener("visibilitychange",function(){
         var scene=document.querySelector(".scene");
