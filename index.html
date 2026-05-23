@@ -1,1 +1,189 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Céu Pixel Roxo</title><style> * { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 100%; height: 100%; overflow: hidden; background: #030a1f; } .sky { position: fixed; inset: 0; overflow: hidden; background: #030a1f; } .star { position: absolute; width: 2px; height: 2px; background: #f4e9ff; opacity: var(--opacity); animation: blink var(--speed) ease-in-out infinite; } @keyframes blink { 0%, 100% { opacity: var(--opacity); } 50% { opacity: 0.18; } } .shooting-star { position: absolute; width: 2px; height: 2px; background: #ffffff; opacity: 0; animation: shoot-left var(--duration) linear forwards; } .shooting-star::before { content: ""; position: absolute; width: 2px; height: 2px; background: rgba(255, 255, 255, 0.85); } .shooting-star.left::before { left: 8px; top: -5px; box-shadow: 8px -5px rgba(255,255,255,0.65), 16px -10px rgba(255,255,255,0.45), 24px -15px rgba(255,255,255,0.28), 32px -20px rgba(255,255,255,0.14), 40px -25px rgba(255,255,255,0.07); } .shooting-star.right::before { left: -8px; top: -5px; box-shadow: -8px -5px rgba(255,255,255,0.65), -16px -10px rgba(255,255,255,0.45), -24px -15px rgba(255,255,255,0.28), -32px -20px rgba(255,255,255,0.14), -40px -25px rgba(255,255,255,0.07); } @keyframes shoot-left { 0% { opacity: 0; transform: translate(0, 0); } 10% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translate(-500px, 300px); } } @keyframes shoot-right { 0% { opacity: 0; transform: translate(0, 0); } 10% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translate(500px, 300px); } } </style></head><body><div class="sky" id="sky"></div><script> const sky = document.getElementById('sky'); const starCount = 150; function random(min, max) { return Math.random() * (max - min) + min; } for (let i = 0; i < starCount; i++) { const star = document.createElement('span'); star.className = 'star'; star.style.left = `${random(0, 100)}vw`; star.style.top = `${random(0, 100)}vh`; star.style.setProperty('--opacity', random(0.35, 1).toFixed(2)); star.style.setProperty('--speed', `${random(2.5, 7)}s`); star.style.animationDelay = `${random(-7, 0)}s`; sky.appendChild(star); } function createShootingStar() { const star = document.createElement('span'); const direction = Math.random() > 0.5 ? 'left' : 'right'; star.className = `shooting-star ${direction}`; if (direction === 'left') { star.style.left = `${random(60, 110)}vw`; } else { star.style.left = `${random(-10, 30)}vw`; star.style.animationName = 'shoot-right'; } star.style.top = `${random(0, 45)}vh`; star.style.setProperty('--duration', `${random(1.2, 2.4)}s`); sky.appendChild(star); star.addEventListener('animationend', () => { star.remove(); }); } function loopShootingStar() { createShootingStar(); const nextTime = random(4000, 12000); setTimeout(loopShootingStar, nextTime); } setTimeout(loopShootingStar, random(1000, 3500)); </script></body></html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morgan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; overflow: hidden; font-family: 'Rethink Sans', sans-serif; }
+        body { background: #0B0210; }
+        .scene { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+        .stars { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+        .star { position: absolute; border-radius: 50%; background: #fff; }
+        .star.twinkle-slow { animation: twinkle 4s ease-in-out infinite; }
+        .star.twinkle-med  { animation: twinkle 2.5s ease-in-out infinite; }
+        .star.twinkle-fast { animation: twinkle 1.8s ease-in-out infinite; }
+        @keyframes twinkle {
+            0%,100%{opacity:var(--base-opacity,0.3)} 50%{opacity:var(--peak-opacity,1)}
+        }
+
+        .confetti-container { position:absolute; inset:0; pointer-events:none; z-index:3; overflow:hidden; }
+        .confetti { position:absolute; top:-20px; width:8px; height:8px; opacity:0; animation:confettiFall var(--fall-dur,6s) var(--fall-delay,0s) linear infinite; }
+        .confetti.rect   { border-radius:1px; }
+        .confetti.circle { border-radius:50%; width:6px; height:6px; }
+        .confetti.ribbon { width:3px; height:12px; border-radius:2px; }
+        @keyframes confettiFall {
+            0%  {transform:translateY(0) rotate(0deg) translateX(0);opacity:1;}
+            25% {transform:translateY(25vh) rotate(180deg) translateX(var(--sway,30px));}
+            50% {transform:translateY(50vh) rotate(360deg) translateX(0);}
+            75% {transform:translateY(75vh) rotate(540deg) translateX(calc(var(--sway,30px)*-1));}
+            100%{transform:translateY(110vh) rotate(720deg) translateX(0);opacity:0.3;}
+        }
+
+        .balloon-svg { position:absolute; bottom:-140px; animation:balloonRise var(--rise-dur,14s) var(--rise-delay,0s) ease-in-out infinite; }
+        @keyframes balloonRise {
+            0%  {transform:translateY(0) translateX(0) rotate(-2deg);opacity:0;}
+            5%  {opacity:1;}
+            25% {transform:translateY(-28vh) translateX(var(--sw,18px)) rotate(2deg);}
+            50% {transform:translateY(-55vh) translateX(0) rotate(-2deg);}
+            75% {transform:translateY(-80vh) translateX(calc(var(--sw,18px)*-1)) rotate(2deg);}
+            92% {opacity:1;}
+            100%{transform:translateY(-115vh) translateX(var(--sw,18px)) rotate(0deg);opacity:0;}
+        }
+
+        .shooting-star { position:absolute; width:80px; height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.8)); border-radius:1px; opacity:0; z-index:2; animation:shoot 1.2s ease-out forwards; }
+        .shooting-star::before { content:""; position:absolute; right:0; top:-1px; width:4px; height:3px; border-radius:50%; background:#fff; box-shadow:0 0 6px 2px rgba(200,210,255,0.6); }
+        @keyframes shoot {
+            0%{transform:rotate(var(--angle,35deg)) translateX(0);opacity:0;} 5%{opacity:1;} 100%{transform:rotate(var(--angle,35deg)) translateX(350px);opacity:0;}
+        }
+
+        .chat-backdrop-wrap { position:absolute; top:93px; left:50.25%; transform:translateX(-50%); width:728px; height:486px; z-index:20; pointer-events:none; }
+        .chat-backdrop { position:absolute; inset:0; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-radius:16px; border:1px solid rgba(192,35,94,0.15); }
+        .border-light { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+        .border-light .glow-path { fill:none; stroke:#c0235e; stroke-width:2; filter:url(#pinkGlow); stroke-dasharray:80 9999; stroke-dashoffset:0; animation:borderTrail 13.3s linear infinite; }
+        @keyframes borderTrail {
+            0%{stroke-dashoffset:0;opacity:1;} 70%{opacity:1;} 85%{opacity:0;} 100%{stroke-dashoffset:-2428;opacity:0;}
+        }
+
+        .logo-tabs { position:absolute; right:calc(50.25% - 189px + 10px); top:489px; transform:translateY(-50%); z-index:21; text-align:right; }
+        .logo-tabs .logo-text { font-family:'Rethink Sans',sans-serif; font-weight:400; font-size:0.75rem; letter-spacing:2px; -webkit-text-stroke:1px #050a15; paint-order:stroke fill; color:#fff; }
+        .logo-tabs .logo-text .letter { display:inline-block; animation:letterBounce 12s ease-in-out infinite; }
+        @keyframes letterBounce {
+            0%,15%,100%{transform:translateY(0)} 5%{transform:translateY(-3px)} 8%{transform:translateY(1px)} 12%{transform:translateY(0)}
+        }
+
+        .logo-area { position:absolute; left:80px; top:50%; transform:translateY(-50%); z-index:10; text-align:left; color:#fff; }
+        .eyebrow { font-family:'Rethink Sans',sans-serif; font-size:11px; letter-spacing:4px; text-transform:uppercase; color:#c0235e; margin-bottom:6px; font-weight:400; }
+        .logo-text-main { font-family:'Rethink Sans',sans-serif; font-size:clamp(32px,6vw,80px); font-weight:800; letter-spacing:8px; text-transform:uppercase; line-height:1; margin-bottom:6px; color:#c0235e; text-shadow:0 0 20px rgba(192,35,94,0.6),0 0 50px rgba(192,35,94,0.3); }
+        .logo-sub { font-family:'Rethink Sans',sans-serif; font-size:15px; font-weight:400; letter-spacing:2px; color:rgba(192,35,94,0.7); }
+
+        @media (max-width:960px){ .logo-area{left:50%;text-align:center;transform:translate(-50%,-50%);} }
+        .paused,.paused *,.paused::before,.paused::after,.paused *::before,.paused *::after{animation-play-state:paused!important;}
+    </style>
+</head>
+<body>
+<div class="scene">
+    <div class="stars" id="stars"></div>
+    <div id="shootingStars"></div>
+    <div class="confetti-container" id="confettiEl"></div>
+    <div id="balloonsEl"></div>
+
+    <div class="logo-area">
+        <div class="eyebrow">Parabéns!</div>
+        <div class="logo-text-main">Morgan</div>
+        <div class="logo-sub">www.mixhits.com.br</div>
+    </div>
+
+    <div class="chat-backdrop-wrap">
+        <div class="chat-backdrop"></div>
+        <svg class="border-light" viewBox="0 0 728 486" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="pinkGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+            <rect class="glow-path" x="1" y="1" width="726" height="484" rx="16" ry="16"/>
+        </svg>
+    </div>
+
+    <div class="logo-tabs">
+        <div class="logo-text">
+            <span class="letter" style="animation-delay:0s">Z</span><span class="letter" style="animation-delay:0.15s">a</span><span class="letter" style="animation-delay:0.3s">r</span><span class="letter" style="animation-delay:0.45s">u</span>
+        </div>
+    </div>
+</div>
+<script>
+    var starsEl=document.getElementById("stars"),tcl=["twinkle-slow","twinkle-med","twinkle-fast"];
+    for(var i=0;i<300;i++){
+        var s=document.createElement("div");s.className="star";
+        var sz=Math.random()<0.6?1:(Math.random()<0.75?1.5:2.5);
+        s.style.width=sz+"px";s.style.height=sz+"px";
+        s.style.top=(Math.random()*80)+"%";s.style.left=(Math.random()*100)+"%";
+        var bo=0.15+Math.random()*0.3;
+        s.style.setProperty("--base-opacity",bo);
+        s.style.setProperty("--peak-opacity",Math.min(bo+0.5+Math.random()*0.3,1));
+        if(Math.random()<0.6){s.classList.add(tcl[Math.floor(Math.random()*3)]);s.style.animationDelay=(Math.random()*6)+"s";}
+        else{s.style.opacity=bo;}
+        if(sz>=2)s.style.boxShadow="0 0 "+(2+Math.random()*3)+"px rgba(180,190,255,0.4)";
+        starsEl.appendChild(s);
+    }
+
+    var ccol=["#ff69b4","#ff1493","#ff85c2","#ffb3d9","#ff4da6","#9b59b6","#fff","#c0235e","#ff6eb4","#ffaad4"];
+    var cshp=["rect","circle","ribbon"],cel=document.getElementById("confettiEl");
+    for(var c=0;c<80;c++){
+        var cf=document.createElement("div");
+        cf.className="confetti "+cshp[Math.floor(Math.random()*cshp.length)];
+        cf.style.left=(Math.random()*100)+"%";
+        cf.style.background=ccol[Math.floor(Math.random()*ccol.length)];
+        cf.style.setProperty("--fall-dur",(5+Math.random()*7)+"s");
+        cf.style.setProperty("--fall-delay",(Math.random()*8)+"s");
+        cf.style.setProperty("--sway",(Math.random()<0.5?1:-1)*(15+Math.random()*40)+"px");
+        cf.style.transform="rotate("+(Math.random()*360)+"deg)";
+        cel.appendChild(cf);
+    }
+
+    /* amarelo (#ffd700) trocado por roxo (#8b2fc9) */
+    var bcol=["#ff69b4","#c0235e","#ff1493","#ff85c2","#e91e8c","#ff4da6","#8b2fc9","#ff6eb4"];
+    var bel=document.getElementById("balloonsEl");
+    for(var b=0;b<12;b++){
+        var col=bcol[Math.floor(Math.random()*bcol.length)];
+        var sc=0.6+Math.random()*0.9;
+        var w=Math.round(60*sc),h=Math.round(75*sc);
+        var wrapper=document.createElement("div");
+        wrapper.className="balloon-svg";
+        wrapper.style.left=(3+Math.random()*92)+"%";
+        wrapper.style.setProperty("--rise-dur",(11+Math.random()*9)+"s");
+        wrapper.style.setProperty("--rise-delay",(Math.random()*14)+"s");
+        wrapper.style.setProperty("--sw",(Math.random()<0.5?1:-1)*(8+Math.random()*25)+"px");
+        wrapper.innerHTML=
+          '<svg width="'+w+'" height="'+(h+40)+'" viewBox="0 0 60 115" xmlns="http://www.w3.org/2000/svg">'
+          +'<defs>'
+          +'<radialGradient id="bg'+b+'" cx="38%" cy="32%" r="60%">'
+          +'<stop offset="0%" stop-color="#fff" stop-opacity="0.45"/>'
+          +'<stop offset="40%" stop-color="'+col+'" stop-opacity="0.9"/>'
+          +'<stop offset="100%" stop-color="'+col+'" stop-opacity="1"/>'
+          +'</radialGradient>'
+          +'</defs>'
+          +'<ellipse cx="30" cy="33" rx="28" ry="33" fill="url(#bg'+b+')" />'
+          +'<polygon points="30,64 26,70 34,70" fill="'+col+'"/>'
+          +'<ellipse cx="30" cy="70" rx="3" ry="2.5" fill="'+col+'"/>'
+          +'<path d="M30 72 Q22 85 30 95 Q38 105 30 115" stroke="rgba(255,255,255,0.35)" stroke-width="1" fill="none"/>'
+          +'</svg>';
+        bel.appendChild(wrapper);
+    }
+
+    var shootEl=document.getElementById("shootingStars");
+    function spawnShootingStar(){
+        var el=document.createElement("div");el.className="shooting-star";
+        el.style.top=(3+Math.random()*55)+"%";el.style.left=(5+Math.random()*85)+"%";
+        var angle=25+Math.random()*30;
+        el.style.setProperty("--angle",angle+"deg");el.style.transform="rotate("+angle+"deg)";
+        el.style.width=(60+Math.random()*60)+"px";
+        shootEl.appendChild(el);setTimeout(function(){el.remove();},1500);
+    }
+    function scheduleShoot(){setTimeout(function(){spawnShootingStar();scheduleShoot();},3000+Math.random()*5000);}
+    setTimeout(function(){spawnShootingStar();scheduleShoot();},1500);
+
+    document.addEventListener("visibilitychange",function(){
+        var scene=document.querySelector(".scene");
+        if(document.hidden)scene.classList.add("paused");else scene.classList.remove("paused");
+    });
+</script>
+</body>
+</html>
