@@ -1,1 +1,247 @@
-<!doctypehtml><html lang=pt-BR><meta charset=utf-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Rádio Alta Vibe</title><style>:root{--bg:#090012;--panel:#12081f;--accent:rgb(98,174,255);--text:#f2f0f7;--text-dim:#b9b3c9;--grad:linear-gradient(135deg, #7a12d4, #ff2ea6, #05010a)}*{box-sizing:border-box}body,html{margin:0;padding:0;height:100%;background:var(--bg);color:var(--text);font-family:'Segoe UI',Arial,sans-serif;overflow:hidden}.page{position:relative;width:100vw;height:100vh;background:var(--bg)}.stage{position:fixed;top:50%;left:0;right:0;transform:translateY(calc(-50% + 5vh));display:flex;justify-content:flex-start;padding:0 30px;z-index:5}.left-block{width:280px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;margin-left:5vw}.left-block .tip-card,.left-block .title-card{background:linear-gradient(var(--panel),var(--panel)) padding-box,var(--grad) border-box;border:2px solid transparent;border-radius:12px;padding:12px 14px;width:100%}.left-block .title-card h1{margin:0;font-size:18px;font-weight:800;text-transform:uppercase}.letter{display:inline-block;color:#eaff00;text-shadow:0 0 6px rgba(234,255,0,.55),0 0 14px rgba(234,255,0,.35);animation-iteration-count:infinite;animation-timing-function:ease-in-out}.anim-bounce .letter{animation-name:kfBounce;animation-duration:.9s}@keyframes kfBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}.anim-pulse .letter{animation-name:kfPulse;animation-duration:1.1s}@keyframes kfPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}.anim-wave .letter{animation-name:kfWave;animation-duration:1.2s}@keyframes kfWave{0%,100%{transform:translateY(0)}25%{transform:translateY(-5px)}75%{transform:translateY(5px)}}.anim-shake .letter{animation-name:kfShake;animation-duration:.5s}@keyframes kfShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-2px)}75%{transform:translateX(2px)}}.anim-flip .letter{animation-name:kfFlip;animation-duration:1.4s}@keyframes kfFlip{0%,100%{transform:rotateX(0)}50%{transform:rotateX(180deg)}}.anim-glow .letter{animation-name:kfGlow;animation-duration:1.6s}@keyframes kfGlow{0%,100%{text-shadow:0 0 4px rgba(234,255,0,.4)}50%{text-shadow:0 0 16px rgba(234,255,0,.95),0 0 26px rgba(234,255,0,.6)}}.anim-skew .letter{animation-name:kfSkew;animation-duration:1s}@keyframes kfSkew{0%,100%{transform:skewX(0)}50%{transform:skewX(12deg)}}.anim-rotate .letter{animation-name:kfRotate;animation-duration:1.3s}@keyframes kfRotate{0%,100%{transform:rotate(0)}50%{transform:rotate(10deg)}}.anim-spacing .letter{animation-name:kfSpacing;animation-duration:1.5s}@keyframes kfSpacing{0%,100%{margin:0 0}50%{margin:0 3px}}.anim-hue .letter{animation-name:kfHue;animation-duration:2s}@keyframes kfHue{0%,100%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(25deg)}}.left-block .tip-card{display:flex;align-items:center;justify-content:flex-start;gap:8px;font-size:13px;color:var(--text-dim);line-height:1.4;text-align:left}.left-block .tip-card b{color:var(--text)}.site-link{display:block;width:100%;text-align:center;color:#fff;font-size:12px;font-weight:700;letter-spacing:.5px;text-decoration:none;padding:4px 0}</style><div class=page><div class=stage><div class=left-block aria-label="Rádio Alta Vibe"><div class=title-card><h1 class=anim-bounce id=radioTitle>⚡ RÁDIO ALTA VIBE</h1></div><div class=tip-card>🎵 <span>Peça sua <b>música favorita</b>!</span></div><div class=tip-card>💬 <span>Mande seu <b>salve</b> no chat!</span></div><div class=tip-card>⭐ <span>Fique ligado na programação para ganhar <b>xats, days e powers</b>.</span></div><a class=site-link href=https://www.altavibe.com.br rel=noopener target=_blank>www.altavibe.com.br</a></div></div></div><script>var titulo=document.getElementById("radioTitle"),textoOriginal=titulo.textContent;titulo.textContent="",textoOriginal.split("").forEach(function(t,a){var i=document.createElement("span");i.className="letter",i.style.animationDelay=.04*a+"s",i.textContent=" "===t?" ":t,titulo.appendChild(i)});var tiposDeAnimacao=["anim-bounce","anim-pulse","anim-wave","anim-shake","anim-flip","anim-glow","anim-skew","anim-rotate","anim-spacing","anim-hue"],indiceAtual=0;function trocarAnimacao(){titulo.className=tiposDeAnimacao[indiceAtual],indiceAtual=(indiceAtual+1)%tiposDeAnimacao.length}trocarAnimacao(),setInterval(trocarAnimacao,6e4)</script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rádio Alta Vibe</title>
+<style>
+  :root{
+    --bg: #090012;
+    --panel: #12081f;
+    --accent: rgb(98,174,255);
+    --text: #f2f0f7;
+    --text-dim: #b9b3c9;
+    --grad: linear-gradient(135deg, #7a12d4, #ff2ea6, #05010a);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden; /* sem rolagem na página */
+  }
+
+  .page{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg);
+  }
+
+  /* ===== PALCO GERAL (centralizado verticalmente, deslocado 5% para baixo) ===== */
+  .stage{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(calc(-50% + 5vh));
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 30px;
+    z-index: 5;
+  }
+
+  /* ===== BLOCO ESQUERDO ===== */
+  .left-block{
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    margin-left: 5vw;
+  }
+
+  /* Cartões com borda degradê roxo / rosa / preto */
+  .left-block .title-card,
+  .left-block .tip-card{
+    background: linear-gradient(var(--panel), var(--panel)) padding-box,
+                var(--grad) border-box;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 12px 14px;
+    width: 100%;
+  }
+
+  .left-block .title-card h1{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .letter{
+    display: inline-block;
+    color: #eaff00;
+    text-shadow: 0 0 6px rgba(234,255,0,0.55), 0 0 14px rgba(234,255,0,0.35);
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* 1. Bounce */
+  .anim-bounce .letter{ animation-name: kfBounce; animation-duration: 0.9s; }
+  @keyframes kfBounce{
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* 2. Pulse */
+  .anim-pulse .letter{ animation-name: kfPulse; animation-duration: 1.1s; }
+  @keyframes kfPulse{
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+  }
+
+  /* 3. Wave */
+  .anim-wave .letter{ animation-name: kfWave; animation-duration: 1.2s; }
+  @keyframes kfWave{
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    75% { transform: translateY(5px); }
+  }
+
+  /* 4. Shake */
+  .anim-shake .letter{ animation-name: kfShake; animation-duration: 0.5s; }
+  @keyframes kfShake{
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+  }
+
+  /* 5. Flip */
+  .anim-flip .letter{ animation-name: kfFlip; animation-duration: 1.4s; }
+  @keyframes kfFlip{
+    0%, 100% { transform: rotateX(0deg); }
+    50% { transform: rotateX(180deg); }
+  }
+
+  /* 6. Glow */
+  .anim-glow .letter{ animation-name: kfGlow; animation-duration: 1.6s; }
+  @keyframes kfGlow{
+    0%, 100% { text-shadow: 0 0 4px rgba(234,255,0,0.4); }
+    50% { text-shadow: 0 0 16px rgba(234,255,0,0.95), 0 0 26px rgba(234,255,0,0.6); }
+  }
+
+  /* 7. Skew */
+  .anim-skew .letter{ animation-name: kfSkew; animation-duration: 1s; }
+  @keyframes kfSkew{
+    0%, 100% { transform: skewX(0deg); }
+    50% { transform: skewX(12deg); }
+  }
+
+  /* 8. Rotate */
+  .anim-rotate .letter{ animation-name: kfRotate; animation-duration: 1.3s; }
+  @keyframes kfRotate{
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+  }
+
+  /* 9. Spacing (respiro entre letras) */
+  .anim-spacing .letter{ animation-name: kfSpacing; animation-duration: 1.5s; }
+  @keyframes kfSpacing{
+    0%, 100% { margin: 0 0px; }
+    50% { margin: 0 3px; }
+  }
+
+  /* 10. Hue (variações dentro do tom amarelo/dourado) */
+  .anim-hue .letter{ animation-name: kfHue; animation-duration: 2s; }
+  @keyframes kfHue{
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(25deg); }
+  }
+
+  .left-block .tip-card{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  .left-block .tip-card b{
+    color: var(--text);
+  }
+
+  .site-link{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 4px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="stage">
+
+    <!-- BLOCO ESQUERDO -->
+    <div class="left-block" aria-label="Rádio Alta Vibe">
+      <div class="title-card">
+        <h1 class="anim-bounce" id="radioTitle">⚡ RÁDIO ALTA VIBE</h1>
+      </div>
+      <div class="tip-card">🎵 <span>Peça sua <b>música favorita</b>!</span></div>
+      <div class="tip-card">💬 <span>Mande seu <b>salve</b> no chat!</span></div>
+      <div class="tip-card">⭐ <span>Fique ligado na programação para ganhar <b>xats, days e powers</b>.</span></div>
+      <a class="site-link" href="https://www.altavibe.com.br" target="_blank" rel="noopener">www.altavibe.com.br</a>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // Divide o título em letras individuais para animar cada uma
+  var titulo = document.getElementById('radioTitle');
+  var textoOriginal = titulo.textContent;
+  titulo.textContent = '';
+
+  textoOriginal.split('').forEach(function(caractere, indice){
+    var span = document.createElement('span');
+    span.className = 'letter';
+    span.style.animationDelay = (indice * 0.04) + 's';
+    span.textContent = caractere === ' ' ? '\u00A0' : caractere;
+    titulo.appendChild(span);
+  });
+
+  // As 10 animações que vão se alternar a cada 1 minuto
+  var tiposDeAnimacao = [
+    'anim-bounce',
+    'anim-pulse',
+    'anim-wave',
+    'anim-shake',
+    'anim-flip',
+    'anim-glow',
+    'anim-skew',
+    'anim-rotate',
+    'anim-spacing',
+    'anim-hue'
+  ];
+
+  var indiceAtual = 0;
+
+  function trocarAnimacao(){
+    titulo.className = tiposDeAnimacao[indiceAtual];
+    indiceAtual = (indiceAtual + 1) % tiposDeAnimacao.length;
+  }
+
+  trocarAnimacao(); // aplica a primeira animação já de início
+  setInterval(trocarAnimacao, 60000); // troca a cada 1 minuto
+</script>
+
+</body>
+</html>
