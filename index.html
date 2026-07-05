@@ -1,1 +1,387 @@
-<!doctypehtml><html lang=pt><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Morgan</title><link href=https://fonts.googleapis.com rel=preconnect><link href=https://fonts.gstatic.com rel=preconnect crossorigin><link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;800&display=swap"rel=stylesheet><style>*{margin:0;padding:0;box-sizing:border-box}body,html{width:100%;height:100%;overflow:hidden;font-family:'Rethink Sans',sans-serif}body{background:#20043b}.scene{position:relative;width:100vw;height:100vh;overflow:hidden}.confetti-container{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:hidden}.confetti{position:absolute;top:-20px;width:8px;height:8px;opacity:0;animation:confettiFall var(--fall-dur,6s) var(--fall-delay,0s) linear infinite}.confetti.rect{border-radius:1px}.confetti.circle{border-radius:50%;width:6px;height:6px}.confetti.ribbon{width:3px;height:12px;border-radius:2px}@keyframes confettiFall{0%{transform:translateY(0) rotate(0) translateX(0);opacity:1}25%{transform:translateY(25vh) rotate(180deg) translateX(var(--sway,30px))}50%{transform:translateY(50vh) rotate(360deg) translateX(0)}75%{transform:translateY(75vh) rotate(540deg) translateX(calc(var(--sway,30px)*-1))}100%{transform:translateY(110vh) rotate(720deg) translateX(0);opacity:.3}}.balloon-svg{position:absolute;bottom:-140px;animation:balloonRise var(--rise-dur,14s) var(--rise-delay,0s) ease-in-out infinite}@keyframes balloonRise{0%{transform:translateY(0) translateX(0) rotate(-2deg);opacity:0}5%{opacity:1}25%{transform:translateY(-28vh) translateX(var(--sw,18px)) rotate(2deg)}50%{transform:translateY(-55vh) translateX(0) rotate(-2deg)}75%{transform:translateY(-80vh) translateX(calc(var(--sw,18px)*-1)) rotate(2deg)}92%{opacity:1}100%{transform:translateY(-115vh) translateX(var(--sw,18px)) rotate(0);opacity:0}}.chat-backdrop-wrap{position:absolute;top:93px;left:50.25%;transform:translateX(-50%);width:728px;height:486px;z-index:20;pointer-events:none}.chat-backdrop{position:absolute;inset:0;border-radius:16px}.border-light{position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);overflow:visible;pointer-events:none}.border-light .pulse-path{fill:none;stroke-width:2.5;stroke:url(#pulseGrad);filter:url(#glowFilterLow);animation:borderPulse 3s ease-in-out infinite}@keyframes borderPulse{0%{opacity:.5;filter:url(#glowFilterLow)}50%{opacity:1;filter:url(#glowFilterHigh)}100%{opacity:.5;filter:url(#glowFilterLow)}}.logo-tabs{position:absolute;right:calc(50.25% - 189px + 10px);top:440px;transform:translateY(-50%);z-index:21;text-align:right}.logo-tabs .logo-text{font-family:'Rethink Sans',sans-serif;font-weight:400;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;-webkit-text-stroke:1px #050a15;paint-order:stroke fill;color:#fff}.logo-tabs .logo-text .letter{display:inline-block;animation:letterBounce 12s ease-in-out infinite}@keyframes letterBounce{0%,100%,15%{transform:translateY(0)}5%{transform:translateY(-3px)}8%{transform:translateY(1px)}12%{transform:translateY(0)}}.logo-area{position:absolute;left:80px;top:50%;transform:translateY(-50%);z-index:10;text-align:left;color:#fff}.eyebrow{font-family:'Rethink Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#c0235e;margin-bottom:6px;font-weight:400}.logo-text-main{font-family:'Rethink Sans',sans-serif;font-size:clamp(32px,6vw,80px);font-weight:800;letter-spacing:8px;text-transform:uppercase;line-height:1;margin-bottom:6px;display:flex;gap:0}.logo-text-main .gl{color:#c0235e;animation:glowPass 4s ease-in-out infinite;animation-delay:var(--gd,0s)}@keyframes glowPass{0%,100%{color:#c0235e;text-shadow:none}50%{color:#ff6eb4;text-shadow:0 0 10px #ff6eb4,0 0 30px #ff1493,0 0 60px rgba(255,20,147,.8),0 0 100px rgba(192,35,94,.5)}}.logo-sub{font-family:'Rethink Sans',sans-serif;font-size:15px;font-weight:400;letter-spacing:2px;color:rgba(192,35,94,.7)}@media (max-width:960px){.logo-area{left:50%;text-align:center;transform:translate(-50%,-50%)}}.paused,.paused *,.paused ::after,.paused ::before,.paused::after,.paused::before{animation-play-state:paused!important}</style><div class=scene><div class=confetti-container id=confettiEl></div><div id=balloonsEl></div><div class=logo-area><div class=eyebrow>Parabéns!</div><div class=logo-text-main><span class=gl style=--gd:0s>M</span><span class=gl style=--gd:0.35s>O</span><span class=gl style=--gd:0.7s>R</span><span class=gl style=--gd:1.05s>G</span><span class=gl style=--gd:1.4s>A</span><span class=gl style=--gd:1.75s>N</span></div><div class=logo-sub>www.mixhits.com.br</div></div><div class=chat-backdrop-wrap><div class=chat-backdrop></div><svg class=border-light viewBox="0 0 730 488"xmlns=http://www.w3.org/2000/svg><defs><linearGradient gradientUnits=userSpaceOnUse id=pulseGrad x1=0% x2=100% y1=0% y2=100%><stop offset=0% stop-color=#ff1493 /><stop offset=50% stop-color=#c0235e /><stop offset=100% stop-color=#7b2fc9 /></linearGradient><linearGradient gradientUnits=userSpaceOnUse id=pulseGrad2 x1=100% x2=0% y1=100% y2=0%><stop offset=0% stop-color=#ff1493 /><stop offset=50% stop-color=#c0235e /><stop offset=100% stop-color=#7b2fc9 /></linearGradient><filter height=150% id=glowFilterLow width=150% x=-25% y=-25%><feGaussianBlur result=blur stdDeviation=3 /><feMerge><feMergeNode in=blur /><feMergeNode in=blur /><feMergeNode in=SourceGraphic /></feMerge></filter><filter height=170% id=glowFilterHigh width=170% x=-35% y=-35%><feGaussianBlur result=blur1 stdDeviation=8 /><feGaussianBlur result=blur2 stdDeviation=16 /><feMerge><feMergeNode in=blur2 /><feMergeNode in=blur1 /><feMergeNode in=SourceGraphic /></feMerge></filter></defs><rect class=pulse-path height=486 rx=16 ry=16 width=728 x=1 y=1 /></svg></div><div class=logo-tabs><div class=logo-text><span class=letter style=animation-delay:0s>Z</span><span class=letter style=animation-delay:.15s>A</span><span class=letter style=animation-delay:.3s>R</span><span class=letter style=animation-delay:.45s>U</span></div></div></div><script>for(var ccol=["#ff69b4","#ff1493","#ff85c2","#ffb3d9","#ff4da6","#9b59b6","#fff","#c0235e","#ff6eb4","#ffaad4"],cshp=["rect","circle","ribbon"],cel=document.getElementById("confettiEl"),c=0;c<40;c++){var cf=document.createElement("div");cf.className="confetti "+cshp[Math.floor(Math.random()*cshp.length)],cf.style.left=100*Math.random()+"%",cf.style.background=ccol[Math.floor(Math.random()*ccol.length)],cf.style.setProperty("--fall-dur",5+7*Math.random()+"s"),cf.style.setProperty("--fall-delay",8*Math.random()+"s"),cf.style.setProperty("--sway",(Math.random()<.5?1:-1)*(15+40*Math.random())+"px"),cf.style.transform="rotate("+360*Math.random()+"deg)",cel.appendChild(cf)}for(var bcol=["#ff69b4","#c0235e","#ff1493","#ff85c2","#e91e8c","#ff4da6","#8b2fc9","#ff6eb4"],bel=document.getElementById("balloonsEl"),lateralZones=[2,8,16,78,86,94],b=0;b<6;b++){var col=bcol[Math.floor(Math.random()*bcol.length)],sc=.6+.9*Math.random(),w=Math.round(60*sc),h=Math.round(75*sc),wrapper=document.createElement("div");wrapper.className="balloon-svg";var baseX=lateralZones[b];wrapper.style.left=baseX+(6*Math.random()-3)+"%",wrapper.style.setProperty("--rise-dur",11+9*Math.random()+"s"),wrapper.style.setProperty("--rise-delay",14*Math.random()+"s"),wrapper.style.setProperty("--sw",(Math.random()<.5?1:-1)*(8+20*Math.random())+"px"),wrapper.innerHTML='<svg width="'+w+'" height="'+(h+40)+'" viewBox="0 0 60 115" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="bg'+b+'" cx="38%" cy="32%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity="0.45"/><stop offset="40%" stop-color="'+col+'" stop-opacity="0.9"/><stop offset="100%" stop-color="'+col+'" stop-opacity="1"/></radialGradient></defs><ellipse cx="30" cy="33" rx="28" ry="33" fill="url(#bg'+b+')" /><polygon points="30,64 26,70 34,70" fill="'+col+'"/><ellipse cx="30" cy="70" rx="3" ry="2.5" fill="'+col+'"/><path d="M30 72 Q22 85 30 95 Q38 105 30 115" stroke="rgba(255,255,255,0.35)" stroke-width="1" fill="none"/></svg>',bel.appendChild(wrapper)}var useGrad1=!0,pathEl=document.querySelector(".pulse-path");setInterval(function(){useGrad1=!useGrad1,pathEl.style.stroke=useGrad1?"url(#pulseGrad)":"url(#pulseGrad2)"},3e3),document.addEventListener("visibilitychange",function(){var e=document.querySelector(".scene");document.hidden?e.classList.add("paused"):e.classList.remove("paused")})</script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rádio Alta Vibe</title>
+<style>
+  :root{
+    --bg: #090012;
+    --panel: #12081f;
+    --panel-border: rgba(98,174,255,0.25);
+    --accent: rgb(98,174,255);
+    --accent-soft: rgba(98,174,255,0.15);
+    --text: #f2f0f7;
+    --text-dim: #b9b3c9;
+    --right-width: 250px; /* largura do bloco direito, encolhido */
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow: hidden; /* sem rolagem na página */
+  }
+
+  .page{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg);
+  }
+
+  /* ===== PALCO GERAL (alinha os blocos esquerdo e direito pelo topo, centralizado como grupo) ===== */
+  .stage{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 30px;
+    z-index: 5;
+  }
+
+  /* ===== BLOCO ESQUERDO ===== */
+  .left-block{
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-left: 5vw;
+  }
+
+  .left-block .title-card,
+  .left-block .tip-card{
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    width: 100%;
+  }
+
+  .left-block .title-card h1{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: #eaff00;
+    text-shadow: 0 0 6px rgba(234,255,0,0.55), 0 0 14px rgba(234,255,0,0.35);
+    text-transform: uppercase;
+  }
+
+  .left-block .tip-card{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.4;
+    width: 100%;
+    text-align: left;
+  }
+
+  .left-block .tip-card b{
+    color: var(--text);
+  }
+
+  .site-link{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 4px 0;
+    animation: link-glow 2.2s ease-in-out infinite;
+  }
+
+  @keyframes link-glow{
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* ===== BLOCOS DA DIREITA (título acima + dois blocos do mesmo tamanho lado a lado) ===== */
+  .right-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .programacao-header{
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 14px;
+    padding: 10px 14px;
+    width: 100%;
+  }
+
+  .programacao-title{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+    color: #eaff00;
+    text-shadow: 0 0 6px rgba(234,255,0,0.55), 0 0 14px rgba(234,255,0,0.35);
+    text-align: center;
+  }
+
+  .right-wrapper{
+    display: flex;
+    gap: 16px;
+  }
+
+  .right-block{
+    max-height: 80vh;
+    width: var(--right-width);
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 14px;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .schedule-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .day-card{
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 8px 10px;
+  }
+
+  .day-card h3{
+    margin: 0 0 5px 0;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--text);
+    border-bottom: 1px solid var(--accent-soft);
+    padding-bottom: 4px;
+  }
+
+  .day-card ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .day-card li{
+    font-size: 11px;
+    line-height: 1.3;
+    color: var(--text-dim);
+  }
+
+  .day-card li .time{
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 10px;
+  }
+
+  .day-card li .name{
+    color: var(--text);
+    font-weight: 700;
+    font-size: 11.5px;
+  }
+
+  .day-card li{
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .day-card li .info{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .day-card li .locutor{
+    color: var(--text-dim);
+    font-size: 10px;
+  }
+
+  .live-dot{
+    margin-top: 3px;
+  }
+
+  .live-dot{
+    display: none;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff3b3b;
+    flex: 0 0 auto;
+    animation: live-pulse 1.6s ease-in-out infinite;
+  }
+
+  .day-card li.is-live .live-dot{
+    display: inline-block;
+  }
+
+  .day-card li.is-live .name{
+    color: #ff5c5c;
+  }
+
+  @keyframes live-pulse{
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="stage">
+
+    <!-- BLOCO ESQUERDO -->
+    <div class="left-block" aria-label="Rádio Alta Vibe">
+      <div class="title-card">
+        <h1>⚡ Rádio Alta Vibe</h1>
+      </div>
+      <div class="tip-card">🎵 <span>Peça sua <b>música favorita</b>!</span></div>
+      <div class="tip-card">💬 <span>Mande seu <b>salve</b> no chat!</span></div>
+      <div class="tip-card">⭐ <span>Fique ligado na programação para ganhar <b>xats, days e powers</b>.</span></div>
+      <a class="site-link" href="https://www.altavibe.com.br" target="_blank" rel="noopener">www.altavibe.com.br</a>
+    </div>
+
+    <!-- BLOCOS DA DIREITA -->
+    <div class="right-container">
+
+      <div class="programacao-header">
+        <h2 class="programacao-title">PROGRAMAÇÃO</h2>
+      </div>
+
+      <div class="right-wrapper">
+
+        <aside class="right-block" aria-label="Programação ao vivo - parte 1">
+          <div class="schedule-list">
+
+            <div class="day-card" data-day="0">
+              <h3>Domingo</h3>
+              <ul>
+                <li data-start="16:00" data-end="18:00"><span class="live-dot"></span><span class="info"><span class="name">Pura Adrenalina <span class="locutor">(Luuh)</span></span><span class="time">16:00-18:00</span></span></li>
+              </ul>
+            </div>
+
+            <div class="day-card" data-day="1">
+              <h3>Segunda-feira</h3>
+              <ul>
+                <li data-start="16:00" data-end="18:00"><span class="live-dot"></span><span class="info"><span class="name">Gospel Hits <span class="locutor">(Weberson)</span></span><span class="time">16:00-18:00</span></span></li>
+                <li data-start="18:00" data-end="20:00"><span class="live-dot"></span><span class="info"><span class="name">Baladas Retrô <span class="locutor">(Estrella)</span></span><span class="time">18:00-20:00</span></span></li>
+                <li data-start="20:00" data-end="22:00"><span class="live-dot"></span><span class="info"><span class="name">Só as Melhores <span class="locutor">(Lennon)</span></span><span class="time">20:00-22:00</span></span></li>
+              </ul>
+            </div>
+
+            <div class="day-card" data-day="2">
+              <h3>Terça-feira</h3>
+              <ul>
+                <li data-start="14:00" data-end="16:00"><span class="live-dot"></span><span class="info"><span class="name">Almoçando com Música <span class="locutor">(Morgan)</span></span><span class="time">14:00-16:00</span></span></li>
+                <li data-start="16:00" data-end="18:00"><span class="live-dot"></span><span class="info"><span class="name">Gospel Hits <span class="locutor">(Weberson)</span></span><span class="time">16:00-18:00</span></span></li>
+                <li data-start="18:00" data-end="20:00"><span class="live-dot"></span><span class="info"><span class="name">Baladas Retrô <span class="locutor">(Estrella)</span></span><span class="time">18:00-20:00</span></span></li>
+                <li data-start="20:00" data-end="22:00"><span class="live-dot"></span><span class="info"><span class="name">Só as Melhores <span class="locutor">(Lennon)</span></span><span class="time">20:00-22:00</span></span></li>
+              </ul>
+            </div>
+
+            <div class="day-card" data-day="3">
+              <h3>Quarta-feira</h3>
+              <ul>
+                <li data-start="14:00" data-end="16:00"><span class="live-dot"></span><span class="info"><span class="name">Almoçando com Música <span class="locutor">(Morgan)</span></span><span class="time">14:00-16:00</span></span></li>
+                <li data-start="18:00" data-end="20:00"><span class="live-dot"></span><span class="info"><span class="name">Toca Tudo Luan <span class="locutor">(Luan)</span></span><span class="time">18:00-20:00</span></span></li>
+                <li data-start="20:00" data-end="22:00"><span class="live-dot"></span><span class="info"><span class="name">Só as Melhores <span class="locutor">(Lennon)</span></span><span class="time">20:00-22:00</span></span></li>
+              </ul>
+            </div>
+
+          </div>
+        </aside>
+
+        <aside class="right-block" aria-label="Programação ao vivo - parte 2">
+          <div class="schedule-list">
+
+            <div class="day-card" data-day="4">
+              <h3>Quinta-feira</h3>
+              <ul>
+                <li data-start="14:00" data-end="16:00"><span class="live-dot"></span><span class="info"><span class="name">Almoçando com Música <span class="locutor">(Morgan)</span></span><span class="time">14:00-16:00</span></span></li>
+                <li data-start="18:00" data-end="20:00"><span class="live-dot"></span><span class="info"><span class="name">Baladas Retrô <span class="locutor">(Estrella)</span></span><span class="time">18:00-20:00</span></span></li>
+                <li data-start="20:00" data-end="22:00"><span class="live-dot"></span><span class="info"><span class="name">Sintonia <span class="locutor">(Khels)</span></span><span class="time">20:00-22:00</span></span></li>
+              </ul>
+            </div>
+
+            <div class="day-card" data-day="5">
+              <h3>Sexta-feira</h3>
+              <ul>
+                <li data-start="18:00" data-end="20:00"><span class="live-dot"></span><span class="info"><span class="name">Estação Vibe <span class="locutor">(Morgan)</span></span><span class="time">18:00-20:00</span></span></li>
+                <li data-start="20:00" data-end="22:00"><span class="live-dot"></span><span class="info"><span class="name">Só as Melhores <span class="locutor">(Lennon)</span></span><span class="time">20:00-22:00</span></span></li>
+              </ul>
+            </div>
+
+            <div class="day-card" data-day="6">
+              <h3>Sábado</h3>
+              <ul>
+                <li data-start="16:00" data-end="18:00"><span class="live-dot"></span><span class="info"><span class="name">Pura Adrenalina <span class="locutor">(Luuh)</span></span><span class="time">16:00-18:00</span></span></li>
+                <li data-start="18:00" data-end="20:00"><span class="live-dot"></span><span class="info"><span class="name">Sintonia <span class="locutor">(Khels)</span></span><span class="time">18:00-20:00</span></span></li>
+              </ul>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  function getAgoraBrasilia(){
+    // Sempre usa o horário de Brasília (America/Sao_Paulo), independente do fuso do visitante
+    var agoraStr = new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' });
+    return new Date(agoraStr);
+  }
+
+  function atualizarAoVivo(){
+    var agora = getAgoraBrasilia();
+    var diaAtual = agora.getDay(); // 0 = Domingo ... 6 = Sábado
+    var minutosAgora = agora.getHours() * 60 + agora.getMinutes();
+
+    document.querySelectorAll('.day-card').forEach(function(card){
+      var diaCard = parseInt(card.getAttribute('data-day'), 10);
+      card.querySelectorAll('li').forEach(function(item){
+        var partesInicio = item.getAttribute('data-start').split(':');
+        var partesFim = item.getAttribute('data-end').split(':');
+        var inicio = parseInt(partesInicio[0], 10) * 60 + parseInt(partesInicio[1], 10);
+        var fim = parseInt(partesFim[0], 10) * 60 + parseInt(partesFim[1], 10);
+
+        var estaNoAr = (diaCard === diaAtual) && (minutosAgora >= inicio) && (minutosAgora < fim);
+        item.classList.toggle('is-live', estaNoAr);
+      });
+    });
+  }
+
+  atualizarAoVivo();
+  setInterval(atualizarAoVivo, 30000); // verifica de novo a cada 30 segundos
+</script>
+
+</body>
+</html>
